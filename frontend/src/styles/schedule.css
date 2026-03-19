@@ -1,0 +1,34 @@
+/* Schedule Screen Styles */
+
+.schedule-container {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 100px);
+}
+
+.schedule-drop-zone {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-color: #dee2e6 !important;
+}
+
+.schedule-drop-zone:hover {
+  border-color: #0d6efd !important;
+  background-color: #f8f9fa;
+}
+
+.schedule-drop-zone.dragover {
+  border-color: #0d6efd !important;
+  background-color: #e7f1ff;
+}
+
+.space-y-2 > li + li {
+  margin-top: 0.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 1rem;
+}

@@ -31,11 +31,34 @@ function Header() {
         }
     }, [dispatch, userInfo])
 
+<<<<<<< HEAD
     const profile_pic = userInfo && userInfo.image 
         ? (userInfo.image.startsWith('http') 
             ? userInfo.image 
             : `${process.env.REACT_APP_API_URL}${userInfo.image}`)
         : "/assets/default_user.png"
+=======
+          <Nav className="ms-auto align-items-center">
+            <LinkContainer to="/notifications">
+                <Nav.Link>
+                    <i className="fas fa-bell fa-lg"></i>
+                </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/user">
+            <Nav.Link className="d-flex align-items-center p-0">
+              <Image 
+                  src={profile_pic} 
+                  roundedCircle 
+                  width="35" 
+                  height="35" 
+                  className="border border-2 border-light"
+                  alt="User Profile"
+                />
+                <span className="ms-2 text-light">{username}</span>
+            </Nav.Link>
+            </LinkContainer>
+          </Nav>
+>>>>>>> ae012e1e78b8ce661f68b26cecb523ad42969e57
 
     return (
         <Navbar expand="lg" bg="warning" variant="dark" collapseOnSelect className="shadow-sm">
