@@ -1,0 +1,119 @@
+/* --- GLOBAL TRANSITIONS --- */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* --- LIGHT MODE REFINEMENTS --- */
+body {
+  background-color: #f4f7f6;
+}
+
+/* --- DARK MODE CORE --- */
+body.dark-mode {
+  background-color: #0f111a !important;
+  color: #e2e8f0 !important;
+}
+
+.dark-mode .card,
+.dark-mode .list-group-item,
+.dark-mode .bg-white {
+  background-color: #1a1c2e !important;
+  color: #ffffff !important;
+  border-color: #2d3748 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark-mode .form-control {
+  background-color: #121420 !important;
+  border-color: #2d3748 !important;
+  color: #ffffff !important;
+}
+
+/* Fix for Table Visibility in Dark Mode */
+.dark-mode .table {
+  color: #ffffff !important;
+}
+
+.dark-mode .table thead th {
+  background-color: #2d3748 !important;
+  color: #ffc107 !important;
+}
+
+.dark-mode .modal-content {
+  background-color: #1a1c2e !important;
+  color: #fff;
+}
+
+/* Form focus glow in Dark Mode */
+.dark-mode .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.15) !important;
+}
+
+.ai-chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.chat-bubble-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.chat-bubble-btn:hover {
+    transform: scale(1.1);
+}
+
+.chat-window {
+    width: 320px;
+    height: 450px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
+.message-bubble {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    font-size: 0.9rem;
+}
+
+.message-bubble.user {
+    background-color: #ffc107;
+    color: black;
+    margin-left: auto;
+    border-bottom-right-radius: 2px;
+}
+
+.message-bubble.ai {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    margin-right: auto;
+    border-bottom-left-radius: 2px;
+}
