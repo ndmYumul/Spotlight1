@@ -24,7 +24,6 @@ import AdminRoute from './components/AdminRoute'
 import { useSelector } from 'react-redux'
 import { PayPalScriptProvider } from "@paypal/react-paypal-js" 
 import Chat from './Chat';
-import UserScreen from './screens/UserScreen';
 
 function App() {
 
