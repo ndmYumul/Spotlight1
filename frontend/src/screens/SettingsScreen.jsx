@@ -7,7 +7,6 @@ import { ThemeContext } from '../ThemeContext'
 function SettingsScreen() {
     const { isDarkMode, toggleTheme } = useContext(ThemeContext)
     const userLogin = useSelector((state) => state.userLogin)
-    const { userInfo } = userLogin
 
     return (
         <Container className="py-4">
