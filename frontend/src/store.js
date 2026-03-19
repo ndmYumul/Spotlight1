@@ -1,21 +1,88 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { buildingListReducer } from './reducers/buildingReducers';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { thunk } from 'redux-thunk' 
+import { composeWithDevTools } from '@redux-devtools/extension'
+
+import { 
+    userLoginReducer, 
+    userListReducer, 
+    userDeleteReducer, 
+    userDetailsReducer, 
+    userUpdateReducer,
+    userUpdateProfileReducer,
+    userCreateReducer ,
+    userRegisterReducer,
+    userScheduleUpdateReducer,
+    userUpdateToProReducer,
+} from './reducers/userReducers'
+
+import {
+    buildingListReducer,
+    buildingDetailsReducer,
+    buildingCreateReducer,
+    buildingUpdateReducer,
+    buildingDeleteReducer
+} from './reducers/buildingReducers'
+
+import {
+    reservationListReducer,
+    reservationCreateReducer,
+    reservationDeleteReducer,
+    reservationUpdateReducer,
+    reservationListMyReducer,
+} from './reducers/reservationReducers'
+
+import {
+    notificationListReducer,
+    notificationReadReducer,
+} from './reducers/notificationReducers'
 
 const reducer = combineReducers({
-    buildingList: buildingListReducer
-});
+    // User state
+    userLogin: userLoginReducer,
+    userList: userListReducer,
+    userDelete: userDeleteReducer,
+    userDetails: userDetailsReducer,
+    userUpdate: userUpdateReducer,
+    userUpdateProfile: userUpdateProfileReducer,
+    userCreate: userCreateReducer,
+    userRegister: userRegisterReducer,
+    userScheduleUpdate: userScheduleUpdateReducer,
+    userUpdateToPro: userUpdateToProReducer,
 
-const initialState = {};
+    // Building state
+    buildingList: buildingListReducer,
+    buildingDetails: buildingDetailsReducer,
+    buildingCreate: buildingCreateReducer,
+    buildingUpdate: buildingUpdateReducer,
+    buildingDelete: buildingDeleteReducer,
 
-const store = configureStore({
-    reducer: reducer,
-    preloadedState: initialState,
-    devTools: process.env.NODE_ENV !== 'production',
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            immutableCheck: { warnAfter: 100 },
-            serializableCheck: false,           
-        }),
-});
+    // Reservation state
+    reservationList: reservationListReducer,
+    reservationCreate: reservationCreateReducer,
+    reservationDelete: reservationDeleteReducer,
+    reservationUpdate: reservationUpdateReducer,
+    reservationListMy: reservationListMyReducer,
 
-export default store;
+    // Notification state
+    notificationList: notificationListReducer,
+    notificationRead: notificationReadReducer,
+})
+
+// Pull data from Storage if it exists
+const userInfoFromStorage = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null
+
+const initialState = {
+    userLogin: { userInfo: userInfoFromStorage }
+}
+
+const middleware = [thunk]
+
+const store = createStore(
+    reducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+)
+
+export default store

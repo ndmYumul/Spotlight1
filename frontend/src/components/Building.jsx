@@ -6,26 +6,28 @@ import { Ratio } from 'react-bootstrap'
 
 function Building({ building }) {
   return (
-    <Card className="my-3 p-3 rounded shadow-sm">
+    <Card className="my-3 p-3 rounded shadow-sm h-100"> {/* h-100 keeps cards uniform in a grid */}
         <Link to={`/building/${building._id}`}>
-        <Ratio aspectRatio="16x9">
-        <Card.Img src={`${process.env.REACT_APP_API_URL}${building.image}`} variant="top" />
-        </Ratio>
+            <Ratio aspectRatio="16x9">
+                <Card.Img 
+                    src={building.image}
+                    variant="top" 
+                    style={{ objectFit: 'cover' }} 
+                />
+            </Ratio>
         </Link>
 
-        <Card.Body>
+        <Card.Body className="d-flex flex-column">
             <Link to={`/building/${building._id}`} className='text-decoration-none text-dark'>
-            <Card.Title as="div">
-                <strong>{building.name}</strong>
-            </Card.Title>
+                <Card.Title as="div" className="mb-3">
+                    <strong>{building.name}</strong>
+                </Card.Title>
             </Link>
 
-            <Card.Text as="h4">
-                <StatusBadge slots={building.slots} totalSlots={building.totalSlots} />
+            <Card.Text as="div" className="mt-auto">
+                <StatusBadge slots={building.totalSlots} totalSlots={building.maxSlots} />
             </Card.Text>
-
         </Card.Body>
-
     </Card>
   )
 }
