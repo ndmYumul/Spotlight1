@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { thunk } from 'redux-thunk' 
 import { composeWithDevTools } from '@redux-devtools/extension'
@@ -49,17 +48,6 @@ const reducer = combineReducers({
     userRegister: userRegisterReducer,
     userScheduleUpdate: userScheduleUpdateReducer,
     userUpdateToPro: userUpdateToProReducer,
-=======
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { buildingListReducer } from './reducers/buildingReducers';
-import { scheduleListReducer, scheduleCreateReducer } from './reducers/scheduleReducers';
-
-const reducer = combineReducers({
-    buildingList: buildingListReducer,
-    scheduleList: scheduleListReducer,
-    scheduleCreate: scheduleCreateReducer
-});
->>>>>>> ae012e1e78b8ce661f68b26cecb523ad42969e57
 
     // Building state
     buildingList: buildingListReducer,

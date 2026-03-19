@@ -5,7 +5,6 @@ import { Container } from 'react-bootstrap';
 import HomeScreen from './screens/HomeScreen';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DetailScreen from './screens/DetailScreen';
-<<<<<<< HEAD
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import AdminUserListScreen from './screens/AdminUserListScreen';
@@ -25,10 +24,8 @@ import AdminRoute from './components/AdminRoute'
 import { useSelector } from 'react-redux'
 import { PayPalScriptProvider } from "@paypal/react-paypal-js" 
 import Chat from './Chat';
-=======
 import UserScreen from './screens/UserScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
->>>>>>> ae012e1e78b8ce661f68b26cecb523ad42969e57
 
 function App() {
 
@@ -36,7 +33,6 @@ function App() {
   const { userInfo } = userLogin
 
   return (
-<<<<<<< HEAD
     <PayPalScriptProvider options={{ "client-id": "AVRhcatNF4Z8aAzZ9mdUVf3BZcz8H6JdYw2CjTdJonM0oX5GLvHyOGimD3QVu4JRzGPgrvvMrCQgKbVJ", currency: "USD" }}>
       <Router>
           <Header />
@@ -70,22 +66,6 @@ function App() {
         <Chat/>
       </Router>
     </PayPalScriptProvider>
-=======
-    <Router>
-        <Header />
-        <main className="py-3">
-          <Container>
-            <Routes>
-              <Route path='/' element={<HomeScreen />} exact />
-              <Route path='/building/:id' element={<DetailScreen />} />
-              <Route path='/user' element={<UserScreen />} />
-              <Route path='/schedule' element={<ScheduleScreen />} />
-            </Routes>
-          </Container>
-      </main>
-      <Footer />
-    </Router>
->>>>>>> ae012e1e78b8ce661f68b26cecb523ad42969e57
   );
 }
 
